@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单DOM操作</title>
+</head>
+<style>
+
+</style>
+<body>
+<div id="dom_1">1.id选择器</div>
+<div class="dom_2">2.类选择器</div>
+<div>3.父、子、兄弟节点查找</div>
+<ul class="dom_3">
+    <li>第1个子节点</li>
+    <li class="child_2">第2个子节点</li>
+    <li>第3个子节点</li>
+</ul>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>
+    $(function () {//匿名函数，一进入页面即执行，相当于DOM ready
+        $('#dom_1').css('color','red');
+        $('.dom_2').css('color','green');
+        $('.dom_3').find('.child_2').css('color','red');//查找已知类名子节点
+        //查找已知索引子节点
+    })
+</script>
+</body>
+</html>
