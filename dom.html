@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>简单DOM操作</title>
+    <title>简单DOM操作-查找节点</title>
 </head>
 <style>
 
@@ -13,16 +13,28 @@
 <div>3.父、子、兄弟节点查找</div>
 <ul class="dom_3">
     <li>第1个子节点</li>
-    <li class="child_2">第2个子节点</li>
+        <li class="child_2">第2个子节点</li>
     <li>第3个子节点</li>
 </ul>
+
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script>
     $(function () {//匿名函数，一进入页面即执行，相当于DOM ready
         $('#dom_1').css('color','red');
         $('.dom_2').css('color','green');
         $('.dom_3').find('.child_2').css('color','red');//查找已知类名子节点
-        //查找已知索引子节点
+
+        var len = $('.dom_3').children().length;
+
+        $(".dom_3 li").eq(2).css({"color":"green"});//查找已知索引子节点,索引从0开始
+        $('.child_2').parent().css({"font-size":"26px"});//查找父节点
+
+        $('.child_2').siblings().css('background-color','blue');   //当前元素所有的兄弟节点
+        $('.child_2').prev().css('background-color','blue');       //当前元素前一个兄弟节点
+        $('.child_2').prevAll().css('background-color','blue');  //当前元素之前所有的兄弟节点
+        $('.child_2').next().css('background-color','blue');       //当前元素之后第一个兄弟节点
+        $('.child_2').nextAll().css('background-color','blue');    //当前元素之后所有的兄弟节点
+
     })
 </script>
 </body>
