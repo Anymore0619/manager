@@ -3,11 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>表格增删查改等</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
 </head>
 <body>
 
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>名称</th>
+        <th>价格</th>
+        <th>车款</th>
+        <th>缩略图</th>
+        <th>年限</th>
+    </tr>
+    </thead>
+    <tbody class="table-content">
+       <script id="table-tpl" type="text/x-jquery-tmpl">
+           {{each(i,item) data}}
+                  <tr>
+                    <th>${i+1}</th>
+                    <th>${item.car.name}</th>
+                    <th>${item.car.price}万</th>
+                    <th>${item.car.year}款</th>
+                    <th><img src="${item.car.thumbnail}" width='50' height='50'></th>
+                    <th>${item.car.warranty_policy}</th>
+                </tr>
+          {{/each}}
+       </script>
+    </tbody>
+</table>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script src="crud.js"></script>
 </body>
 </html>
