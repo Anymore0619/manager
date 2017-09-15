@@ -4,38 +4,54 @@
     <meta charset="UTF-8">
     <title>表格增删查改等</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style>
+        .table-wrapper{
+            padding: 5% 10%;
+        }
+    </style>
 </head>
 <body>
-
-<table class="table table-bordered table-striped">
+<div class="table-wrapper">
+<table class="table table-bordered table-striped table-hover text-center">
     <thead>
     <tr>
-        <th>序号</th>
-        <th>名称</th>
-        <th>价格</th>
-        <th>车款</th>
-        <th>缩略图</th>
-        <th>年限</th>
+        <th class="text-center">序号</th>
+        <th class="text-center">名称</th>
+        <th class="text-center">价格</th>
+        <th class="text-center">车款</th>
+        <th class="text-center">缩略图</th>
+        <th class="text-center">年限</th>
+        <th class="text-center">操作</th>
     </tr>
     </thead>
-    <tbody class="table-content">
-       <script id="table-tpl" type="text/x-jquery-tmpl">
+    <tbody class="table-content ">
+    </tbody>
+</table>
+<!--#分页器-->
+<div class="row clearfix text-center" id="pagination-wrap"></div>
+<!--./分页器-->
+</div>
+
+<script id="table-tpl" type="text/x-jquery-tmpl">
            {{each(i,item) data}}
-                  <tr>
-                    <th>${i+1}</th>
-                    <th>${item.car.name}</th>
-                    <th>${item.car.price}万</th>
-                    <th>${item.car.year}款</th>
-                    <th><img src="${item.car.thumbnail}" width='50' height='50'></th>
-                    <th>${item.car.warranty_policy}</th>
+                  <tr class="text-center">
+                    <th class="text-center">${i+1}</th>
+                    <th class="text-center">${item.car.name}</th>
+                    <th class="text-center">${item.car.price}万</th>
+                    <th class="text-center">${item.car.year}款</th>
+                    <th class="text-center"><img src="${item.car.thumbnail}" width='50' height='50'></th>
+                    <th class="text-center">${item.car.warranty_policy}</th>
+                    <th class="text-center">
+                        <button type="button" class="btn btn-primary">编辑</button>
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </th>
                 </tr>
           {{/each}}
        </script>
-    </tbody>
-</table>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script src="lib/laypage.js"></script>
 <script src="crud.js"></script>
 </body>
 </html>
